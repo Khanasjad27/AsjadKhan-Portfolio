@@ -1,0 +1,256 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.eduSection {
+  position: relative;
+}
+
+.eduGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: stretch;
+
+  @include laptop {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.degreeCard {
+  @include glass-card;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include mobile {
+    padding: 24px 18px;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.iconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gradIcon {
+  color: $accent-lime-bright;
+}
+
+.degreeTopRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.undergradTag {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  color: $accent-lime-bright;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.batchTag {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.degreeTitle {
+  font-family: $font-heading;
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  color: $text-primary;
+  line-height: 1.3;
+}
+
+.specializationBox {
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  margin-bottom: 24px;
+}
+
+.specLabel {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $accent-lime-bright;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.06em;
+}
+
+.specText {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.instDetails {
+  margin-bottom: 24px;
+}
+
+.instName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 4px;
+}
+
+.uniName {
+  font-size: 0.95rem;
+  color: $text-secondary;
+  margin-bottom: 12px;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  color: $text-muted;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.metaDivider {
+  color: $text-dim;
+}
+
+.statusFooter {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $text-muted;
+}
+
+.statusBullet {
+  color: $accent-lime-bright;
+  font-size: 0.7rem;
+}
+
+// Certs column
+.certsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.certsColTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-heading;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.shieldIcon {
+  color: $accent-lime-bright;
+}
+
+.certsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.certCard {
+  @include glass-card;
+  padding: 24px;
+
+  @include mobile {
+    padding: 18px 16px;
+  }
+}
+
+.certHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.certIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border-subtle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $accent-lime-bright;
+  flex-shrink: 0;
+}
+
+.certTitle {
+  font-family: $font-heading;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 2px;
+}
+
+.certType {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  color: $accent-cyan;
+}
+
+.certDesc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: $text-secondary;
+  margin-bottom: 14px;
+}
+
+.certFooter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  color: $text-muted;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.checkIcon {
+  color: $accent-lime-bright;
+}

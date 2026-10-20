@@ -1,0 +1,71 @@
+// Theme: Deep Cinematic Charcoal Canvas (#06080d), Emerald/Lime (#10b981 / #34d399), Cyan (#06b6d4), Instrument Serif headings
+
+// Backgrounds
+$bg-primary: #06080d;
+$bg-secondary: #0a0d15;
+$bg-tertiary: #0f1422;
+$bg-card: rgba(13, 18, 30, 0.65);
+$bg-card-hover: rgba(18, 25, 42, 0.85);
+$bg-card-solid: #0d121e;
+$bg-glass: rgba(10, 14, 22, 0.75);
+$bg-code: #070a10;
+$bg-pill: rgba(22, 22, 22, 0.85);
+
+// Typography Colors
+$text-primary: #f8fafc;
+$text-secondary: #94a3b8;
+$text-muted: #64748b;
+$text-dim: #475569;
+$text-highlight: #ffffff;
+
+$accent-primary: #10b981;
+$accent-emerald: #10b981;
+$accent-lime: #10b981;
+$accent-lime-bright: #34d399;
+$accent-lime-dim: #059669;
+$accent-lime-glow: rgba(16, 185, 129, 0.2);
+
+$accent-cyan: #06b6d4;
+$accent-cyan-bright: #38bdf8;
+$accent-cyan-glow: rgba(6, 182, 212, 0.18);
+
+// Aliases mapped strictly to original emerald / lime accents
+$accent-orange: #10b981;
+$accent-amber: #34d399;
+$accent-orange-glow: rgba(16, 185, 129, 0.25);
+
+$accent-blue: #3b82f6;
+
+// Borders & Dividers
+$border-subtle: rgba(255, 255, 255, 0.08);
+$border-medium: rgba(255, 255, 255, 0.14);
+$border-accent: rgba(16, 185, 129, 0.35);
+$border-active: rgba(16, 185, 129, 0.65);
+
+// Typography Families
+$font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-heading: 'Instrument Serif', Georgia, serif;
+$font-display: 'Instrument Serif', Georgia, serif;
+$font-serif: 'Instrument Serif', Georgia, serif;
+$font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+
+// Transitions & Timing
+$transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-base: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-smooth: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-laptop: 1024px;
+$bp-desktop: 1280px;
+$bp-wide: 1440px;
+
+// Shadows & Glows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+$shadow-md: 0 8px 30px rgba(0, 0, 0, 0.6);
+$shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.8);
+$glow-lime: 0 0 30px rgba(16, 185, 129, 0.22);
+$glow-cyan: 0 0 30px rgba(6, 182, 212, 0.2);
+$glow-orange: 0 0 30px rgba(16, 185, 129, 0.25);

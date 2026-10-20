@@ -1,0 +1,103 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.skillsSection {
+  position: relative;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @include laptop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.categoryCard {
+  @include glass-card;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid $border-subtle;
+}
+
+.categoryIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $accent-lime-bright;
+}
+
+.categoryTitle {
+  font-family: $font-heading;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.skillCount {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $text-muted;
+  letter-spacing: 0.06em;
+}
+
+.skillsPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border-subtle;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  color: #e2e8f0;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: $border-accent;
+    color: $accent-lime-bright;
+    transform: translateY(-1px);
+  }
+}
+
+.badgeBullet {
+  color: $accent-lime-bright;
+  font-weight: 700;
+}
+
+.badgeText {
+  white-space: nowrap;
+
+  @include mobile {
+    white-space: normal;
+    word-break: break-word;
+  }
+}

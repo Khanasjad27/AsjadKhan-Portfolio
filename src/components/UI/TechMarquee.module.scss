@@ -1,0 +1,65 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.marqueeWrap {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(10, 14, 22, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 0;
+  position: relative;
+  z-index: 5;
+  white-space: nowrap;
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: max-content;
+  animation: scrollMarquee 35s linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.marqueeItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: $text-secondary;
+}
+
+.star {
+  color: $accent-lime-bright;
+  font-size: 0.85rem;
+}
+
+.text {
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $accent-lime-bright;
+  }
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@include reduced-motion {
+  .marqueeTrack {
+    animation: none;
+    overflow-x: auto;
+  }
+}

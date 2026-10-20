@@ -1,0 +1,88 @@
+@import './variables';
+
+// Media query mixins
+@mixin mobile {
+  @media (max-width: #{$bp-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$bp-tablet}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: #{$bp-laptop}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$bp-desktop}) {
+    @content;
+  }
+}
+
+// Glassmorphism card
+@mixin glass-card {
+  background: $bg-card;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid $border-subtle;
+  border-radius: 12px;
+  transition: all $transition-smooth;
+
+  &:hover {
+    background: $bg-card-hover;
+    border-color: $border-medium;
+    box-shadow: $shadow-md;
+  }
+}
+
+// Sarthak-style Editorial headline
+@mixin editorial-heading {
+  font-family: $font-heading;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+
+  em {
+    font-family: $font-serif;
+    font-style: italic;
+    font-weight: 400;
+    color: $accent-lime-bright;
+  }
+}
+
+// Technical monospace tag
+@mixin mono-badge {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// Subtle grid pattern
+@mixin tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+// Truncate text
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Reduced motion media query helper
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

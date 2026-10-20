@@ -1,0 +1,521 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.projectsSection {
+  padding: 90px 0 110px;
+  background: $bg-primary;
+  position: relative;
+  z-index: 2;
+
+  @include tablet {
+    padding: 70px 0 90px;
+  }
+}
+
+.selectedHeadingRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.headingText {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-family: $font-serif;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: $text-primary;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+
+  em {
+    font-style: italic;
+    font-weight: 400;
+    color: $accent-lime-bright;
+  }
+}
+
+.subtext {
+  font-family: $font-sans;
+  font-size: 1.05rem;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+// Slider Controls (Counter + Arrows)
+.sliderControls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.slideCounter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: $font-mono;
+  font-size: 0.85rem;
+}
+
+.counterCurrent {
+  color: $accent-lime-bright;
+  font-weight: 700;
+}
+
+.counterDivider {
+  color: $text-muted;
+}
+
+.counterTotal {
+  color: $text-muted;
+}
+
+.arrowGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrowBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: $text-primary;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover:not(:disabled) {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: $accent-lime-bright;
+    color: $accent-lime-bright;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+// Project Quick Tab Selector Bar
+.projectTabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.projectTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: $font-mono;
+  font-size: 0.74rem;
+  color: $text-muted;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: $text-primary;
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+.activeTab {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: $accent-lime-bright;
+  color: $text-primary;
+}
+
+.tabNum {
+  color: $accent-lime-bright;
+  font-weight: 700;
+}
+
+.tabTitle {
+  font-weight: 500;
+}
+
+.tabBadge {
+  font-size: 0.62rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.2);
+  color: $accent-lime-bright;
+}
+
+// Horizontal Single-Line Slider Track
+.sliderTrack {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(16, 185, 129, 0.3) transparent;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(16, 185, 129, 0.4);
+    border-radius: 2px;
+  }
+}
+
+.workPiece {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  min-width: 0;
+  transition: opacity 0.3s ease;
+
+  @include laptop {
+    flex: 0 0 100%;
+  }
+}
+
+.cardLayout {
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  gap: 36px;
+  align-items: center;
+  padding: 32px;
+  background: rgba(13, 18, 30, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: border-color $transition-base;
+
+  &:hover {
+    border-color: rgba(16, 185, 129, 0.35);
+  }
+
+  @include laptop {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 24px;
+  }
+
+  @include mobile {
+    padding: 18px 14px;
+    gap: 20px;
+    border-radius: 12px;
+  }
+}
+
+// Artwork Container with Browser Bar
+.workArtwork {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(10, 13, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.browserBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(18, 22, 34, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $text-muted;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+
+    &:nth-child(1) { background: #ef4444; }
+    &:nth-child(2) { background: #eab308; }
+    &:nth-child(3) { background: #22c55e; }
+  }
+}
+
+.browserUrl {
+  color: $text-secondary;
+  font-weight: 500;
+}
+
+.browserArrow {
+  color: $text-muted;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $accent-lime-bright;
+  }
+}
+
+.artworkInner {
+  padding: 16px;
+}
+
+.defaultVisual {
+  padding: 36px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+  border-radius: 8px;
+  min-height: 220px;
+}
+
+.badgeRow {
+  margin-bottom: 8px;
+}
+
+.highlightBadge {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: $accent-lime-bright;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+}
+
+.cardTitle {
+  font-family: $font-serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 400;
+  color: $text-primary;
+  margin-bottom: 6px;
+}
+
+.cardTagline {
+  font-family: $font-sans;
+  font-size: 0.92rem;
+  color: $text-secondary;
+}
+
+// Right Details Column
+.workDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.detailHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.categoryRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.awardPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: $accent-lime-bright;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.detailTitle {
+  font-family: $font-serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 400;
+  color: $text-primary;
+  line-height: 1.15;
+
+  a {
+    transition: color $transition-fast;
+    &:hover {
+      color: $accent-lime-bright;
+    }
+  }
+}
+
+.taglineText {
+  font-family: $font-sans;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: $accent-cyan-bright;
+}
+
+.detailDesc {
+  font-family: $font-sans;
+  font-size: 0.9rem;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.problemBox {
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.025);
+  border-left: 2px solid $accent-lime-bright;
+}
+
+.problemLabel {
+  display: block;
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: $accent-lime-bright;
+  margin-bottom: 4px;
+}
+
+.problemText {
+  font-family: $font-sans;
+  font-size: 0.85rem;
+  color: $text-secondary;
+  line-height: 1.45;
+}
+
+.highlightsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: $font-sans;
+    font-size: 0.84rem;
+    color: $text-secondary;
+    line-height: 1.4;
+  }
+}
+
+.checkIcon {
+  color: $accent-lime-bright;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.techStackRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stackTag {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  color: $text-primary;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+// Bottom Footer
+.sliderFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding: 0 4px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.swipeHint {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: $text-muted;
+}
+
+.dotsIndicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.activeDot {
+  width: 22px;
+  border-radius: 4px;
+  background: $accent-lime-bright;
+}

@@ -1,0 +1,124 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.signalExplorer {
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+  background: rgba(18, 18, 18, 0.4);
+  border: 1px solid $border-subtle;
+  border-radius: 16px;
+  position: relative;
+
+  @include mobile {
+    padding: 24px;
+  }
+}
+
+.signalTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: $text-muted;
+}
+
+.toplineEyebrow {
+  color: $accent-lime-bright;
+}
+
+.signalVisual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  background: rgba(8, 8, 8, 0.6);
+}
+
+.waveCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.centerLabel {
+  position: relative;
+  z-index: 2;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(3, 3, 3, 0.85);
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.signalOptions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.optionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid $border-subtle;
+  border-radius: 6px;
+  font-family: $font-mono;
+  font-size: 0.76rem;
+  color: $text-secondary;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: $text-primary;
+  }
+}
+
+.activeOption {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: $accent-lime-bright;
+  color: $text-primary;
+}
+
+.signalStory {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.storyTitle {
+  font-family: $font-serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: $text-primary;
+}
+
+.storyDesc {
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  color: $text-secondary;
+  line-height: 1.5;
+}
+
+.signalHint {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  color: $text-dim;
+}

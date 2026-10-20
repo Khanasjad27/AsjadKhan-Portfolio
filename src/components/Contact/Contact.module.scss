@@ -1,0 +1,258 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.contactSection {
+  padding: 100px 0 130px;
+  background: $bg-primary;
+  position: relative;
+  z-index: 2;
+
+  @include tablet {
+    padding: 70px 0 100px;
+  }
+}
+
+.contactInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: $text-secondary;
+  margin-bottom: 28px;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $accent-lime-bright;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.9);
+  animation: pulse 2s infinite;
+}
+
+.heading {
+  font-family: $font-serif;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1.02;
+  color: $text-primary;
+  letter-spacing: -0.02em;
+  margin-bottom: 36px;
+
+  em {
+    font-style: italic;
+    font-weight: 400;
+    color: $accent-lime-bright;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.whatsappCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 32px;
+  border-radius: 9999px;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  color: #25d366;
+  font-family: $font-sans;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba(37, 211, 102, 0.22);
+    border-color: #25d366;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  svg {
+    transition: transform $transition-fast;
+    color: #25d366;
+  }
+}
+
+.contactCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 30px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: $text-primary;
+  font-family: $font-sans;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba(16, 185, 129, 0.18);
+    border-color: $accent-lime-bright;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+    svg {
+      transform: translate(3px, -3px);
+    }
+  }
+
+  svg {
+    transition: transform $transition-fast;
+    color: $accent-lime-bright;
+  }
+}
+
+.resumeCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 28px;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: $accent-lime-bright;
+  font-family: $font-sans;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba(16, 185, 129, 0.22);
+    border-color: $accent-lime-bright;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.35);
+
+    svg {
+      transform: translateY(2px);
+    }
+  }
+
+  svg {
+    transition: transform $transition-fast;
+    color: $accent-lime-bright;
+  }
+}
+
+.subtext {
+  font-family: $font-sans;
+  font-size: 0.98rem;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.directChannels {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 580px;
+}
+
+.channelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+.channelInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-mono;
+  font-size: 0.82rem;
+  flex-wrap: wrap;
+}
+
+.channelIcon {
+  color: $accent-lime-bright;
+  flex-shrink: 0;
+}
+
+.channelLabel {
+  color: $text-muted;
+}
+
+.channelLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: $text-primary;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $accent-lime-bright;
+  }
+}
+
+.copyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: $accent-lime-bright;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: $accent-lime-bright;
+  }
+
+  @include mobile {
+    align-self: flex-end;
+  }
+}

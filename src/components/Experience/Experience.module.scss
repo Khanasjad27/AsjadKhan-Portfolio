@@ -1,0 +1,386 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.experienceSection {
+  padding: 90px 0 110px;
+  background: $bg-primary;
+  position: relative;
+  z-index: 2;
+
+  @include tablet {
+    padding: 70px 0 90px;
+  }
+}
+
+.sectionHeader {
+  margin-bottom: 48px;
+}
+
+.heading {
+  font-family: $font-serif;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: $text-primary;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+
+  em {
+    font-style: italic;
+    font-weight: 400;
+    color: $accent-lime-bright;
+  }
+}
+
+.subtext {
+  font-family: $font-sans;
+  font-size: 1.05rem;
+  color: $text-secondary;
+}
+
+// Connected Vertical Timeline Container
+.timelineContainer {
+  position: relative;
+  padding-left: 48px;
+  margin-bottom: 72px;
+
+  @include mobile {
+    padding-left: 32px;
+  }
+}
+
+// Continuous Vertical Timeline Spine
+.timelineSpine {
+  position: absolute;
+  left: 20px;
+  top: 14px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    $accent-lime-bright 0%,
+    $accent-lime 35%,
+    $accent-cyan 75%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.35);
+
+  @include mobile {
+    left: 12px;
+  }
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timelineItem {
+  position: relative;
+}
+
+// Luminous Node on the Timeline Spine
+.timelineNode {
+  position: absolute;
+  left: -28px;
+  top: 18px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #06080d;
+  border: 2px solid rgba(16, 185, 129, 0.5);
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: all $transition-fast;
+
+  @include mobile {
+    left: -20px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.currentNode {
+  border-color: $accent-lime-bright;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.7);
+
+  .nodeIcon {
+    color: $accent-lime-bright;
+  }
+}
+
+.nodeIcon {
+  color: $accent-cyan-bright;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Compact Refined Experience Card (Decreased Size)
+.compactCard {
+  padding: 20px 24px;
+  background: rgba(13, 18, 30, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transform: translateX(4px);
+  }
+
+  @include mobile {
+    padding: 16px 16px;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.roleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.roleTitle {
+  font-family: $font-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: $text-primary;
+  line-height: 1.2;
+}
+
+.currentBadge {
+  font-family: $font-mono;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: $accent-lime-bright;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  letter-spacing: 0.06em;
+}
+
+.categoryPill {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: $text-muted;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+}
+
+.orgName {
+  font-family: $font-sans;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: $accent-cyan-bright;
+}
+
+.periodLocation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.periodPill, .locationPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $text-muted;
+}
+
+.compactDesc {
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  color: $text-secondary;
+  line-height: 1.5;
+}
+
+.compactBullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: $font-sans;
+    font-size: 0.84rem;
+    color: $text-secondary;
+    line-height: 1.45;
+  }
+}
+
+.checkIcon {
+  color: $accent-lime-bright;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+// How I Work Accordion Grid
+.howIWorkBlock {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  align-items: start;
+  padding-top: 56px;
+  border-top: 1px solid $border-subtle;
+
+  @include laptop {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.howIntro {
+  display: flex;
+  flex-direction: column;
+}
+
+.howHeading {
+  font-family: $font-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: $text-primary;
+  margin-bottom: 14px;
+
+  em {
+    font-style: italic;
+    color: $accent-lime-bright;
+  }
+}
+
+.howDesc {
+  font-family: $font-sans;
+  font-size: 0.95rem;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.accordionCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.expertiseItem {
+  background: rgba(13, 18, 30, 0.45);
+  border: 1px solid $border-subtle;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+}
+
+.itemExpanded {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(13, 18, 30, 0.7);
+}
+
+.itemHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itemEyebrow {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: $accent-lime-bright;
+}
+
+.itemTitle {
+  font-family: $font-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: $text-primary;
+}
+
+.toggleIcon {
+  color: $accent-lime-bright;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.itemBody {
+  padding: 0 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bodyText {
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  color: $text-secondary;
+  line-height: 1.55;
+}
+
+.strengthsText {
+  font-family: $font-mono;
+  font-size: 0.76rem;
+  color: $accent-cyan-bright;
+  background: rgba(6, 182, 212, 0.08);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 2px solid $accent-cyan;
+}
+
+.strengthsLabel {
+  color: $text-primary;
+  font-weight: 600;
+}

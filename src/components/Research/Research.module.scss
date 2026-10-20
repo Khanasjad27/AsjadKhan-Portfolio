@@ -1,0 +1,264 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.impactSection {
+  padding: 80px 0 100px;
+  background: $bg-primary;
+  position: relative;
+  z-index: 2;
+
+  @include tablet {
+    padding: 60px 0 80px;
+  }
+}
+
+.impactTitle {
+  margin-bottom: 60px;
+}
+
+.heading {
+  font-family: $font-serif;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: $text-primary;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+
+  em {
+    font-style: italic;
+    font-weight: 400;
+    color: $accent-lime-bright;
+  }
+}
+
+.subtext {
+  font-family: $font-sans;
+  font-size: 1.05rem;
+  color: $text-secondary;
+}
+
+// Lead Impact Block
+.impactLead {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 48px;
+  background: rgba(18, 18, 18, 0.5);
+  border: 1px solid $border-subtle;
+  border-radius: 16px;
+  margin-bottom: 48px;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+    gap: 24px;
+  }
+}
+
+.impactValue {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.valueNum {
+  font-family: $font-serif;
+  font-size: clamp(3.8rem, 6vw, 5.8rem);
+  font-weight: 400;
+  color: $text-primary;
+  line-height: 1;
+}
+
+.valueSuffix {
+  font-family: $font-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-style: italic;
+  color: $accent-lime-bright;
+}
+
+.impactContext {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contextTitle {
+  font-family: $font-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: $text-primary;
+  line-height: 1.2;
+}
+
+.contextDesc {
+  font-family: $font-sans;
+  font-size: 0.95rem;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+// Pair Grid
+.impactPair {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.1fr;
+  gap: 24px;
+  margin-bottom: 72px;
+
+  @include laptop {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pairCard {
+  padding: 36px 30px;
+  background: rgba(18, 18, 18, 0.4);
+  border: 1px solid $border-subtle;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pairMetric {
+  font-family: $font-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: $text-primary;
+  line-height: 1;
+
+  em {
+    color: $accent-lime-bright;
+    font-style: italic;
+    margin-left: 2px;
+  }
+}
+
+.pairTitle {
+  font-family: $font-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: $text-primary;
+}
+
+.pairDesc {
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  color: $text-secondary;
+  line-height: 1.5;
+}
+
+.principleCard {
+  padding: 36px 30px;
+  background: rgba(16, 185, 129, 0.04);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.principleQuote {
+  font-family: $font-serif;
+  font-size: 1.45rem;
+  line-height: 1.35;
+  color: $text-primary;
+
+  em {
+    font-style: italic;
+    color: $accent-lime-bright;
+  }
+}
+
+// Research Story
+.researchStory {
+  padding-top: 48px;
+  border-top: 1px solid $border-subtle;
+}
+
+.storyHeading {
+  margin-bottom: 40px;
+}
+
+.storyTitle {
+  font-family: $font-serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: $text-primary;
+  margin-bottom: 12px;
+
+  em {
+    font-style: italic;
+    color: $accent-lime-bright;
+  }
+}
+
+.storyDesc {
+  font-family: $font-sans;
+  font-size: 0.95rem;
+  color: $text-secondary;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.paperList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.paperItem {
+  padding: 32px;
+  background: rgba(18, 18, 18, 0.45);
+  border: 1px solid $border-subtle;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: rgba(16, 185, 129, 0.35);
+    transform: translateY(-2px);
+  }
+}
+
+.paperHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+.paperId {
+  color: $accent-lime-bright;
+}
+
+.paperStatus {
+  color: $text-muted;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.paperTitle {
+  font-family: $font-serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: $text-primary;
+  line-height: 1.3;
+}
+
+.paperAbstract {
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  color: $text-secondary;
+  line-height: 1.6;
+}

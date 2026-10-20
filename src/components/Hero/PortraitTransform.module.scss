@@ -1,0 +1,312 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.svgFilterDef {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.centerHeroStage {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  perspective: 1200px;
+  position: relative;
+  z-index: 4;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  will-change: transform, opacity;
+
+  @include mobile {
+    max-width: 310px;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  // ZERO internal box borders
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.glareLayer {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 15;
+  transition: opacity 0.2s ease;
+  mix-blend-mode: overlay;
+}
+
+// Borderless photo stage
+.photoStage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5.2;
+  overflow: visible;
+  background: transparent;
+  transform-style: preserve-3d;
+}
+
+.photoLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  justify-content: center;
+}
+
+.portraitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  // Dramatic high-contrast black-and-white studio lighting with SVG filter
+  filter: url(#studio-bw-lighting) contrast(1.18) brightness(1.04) drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95));
+}
+
+// Seamless bottom feather so it blends smoothly into dark canvas
+.bottomFeather {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 95px;
+  background: linear-gradient(to top, #06080d 20%, transparent 100%);
+  pointer-events: none;
+}
+
+// Full ASCII canvas layer
+.asciiCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+}
+
+// 3D Floating Razorpay AI Builders Stickers
+.sticker {
+  position: absolute;
+  z-index: 6;
+  pointer-events: none;
+  font-family: $font-mono;
+  line-height: 1.25;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blueCodeSticker {
+  top: 36%;
+  right: -24px;
+  background: #1d4ed8;
+  color: #eff6ff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transform: translateZ(42px) rotate(3deg);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    right: -8px;
+    transform: translateZ(25px) rotate(3deg) scale(0.85);
+  }
+}
+
+.stickerLine {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.cyanTagSticker {
+  bottom: 24%;
+  left: -20px;
+  background: #0284c7;
+  color: #f0fdf4;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transform: translateZ(38px) rotate(-4deg);
+  display: flex;
+  flex-direction: column;
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  @include mobile {
+    left: -8px;
+    transform: translateZ(22px) rotate(-4deg) scale(0.85);
+  }
+}
+
+.yellowPostIt {
+  top: 10%;
+  left: -16px;
+  background: #fef08a;
+  color: #1e293b;
+  padding: 8px 12px;
+  border-radius: 2px;
+  transform: translateZ(52px) rotate(-6deg);
+  box-shadow: 3px 6px 18px rgba(0, 0, 0, 0.6);
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+
+  @include mobile {
+    left: -4px;
+    transform: translateZ(30px) rotate(-6deg) scale(0.85);
+  }
+}
+
+.cyberGenesisSticker {
+  bottom: 12px;
+  right: 8px;
+  background: rgba(6, 78, 59, 0.95);
+  border: 1px solid rgba(16, 185, 129, 0.6);
+  color: #a7f3d0;
+  padding: 5px 11px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  transform: translateZ(32px);
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+
+  @include mobile {
+    right: 0;
+    transform: translateZ(20px) scale(0.85);
+  }
+}
+
+// When hovered or dissolving: Photo crossfades, ASCII canvas takes over
+.transformed {
+  .photoLayer {
+    opacity: 0;
+  }
+
+  .asciiCanvas {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .blueCodeSticker {
+    transform: translateZ(65px) rotate(5deg) scale(1.08);
+    box-shadow: 0 12px 36px rgba(29, 78, 216, 0.7);
+  }
+
+  .cyanTagSticker {
+    transform: translateZ(60px) rotate(-6deg) scale(1.08);
+    box-shadow: 0 12px 36px rgba(2, 132, 199, 0.7);
+  }
+
+  .yellowPostIt {
+    transform: translateZ(70px) rotate(-8deg) scale(1.08);
+  }
+
+  .cyberGenesisSticker {
+    transform: translateZ(48px) scale(1.05);
+  }
+}
+
+// Floating Controls without restrictive box borders
+.floatingControls {
+  position: absolute;
+  top: -24px;
+  right: 0;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 9999px;
+  background: rgba(13, 18, 30, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transform: translateZ(35px);
+
+  @include mobile {
+    top: -32px;
+  }
+}
+
+.modeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: $text-secondary;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.activeMode {
+  background: rgba(16, 185, 129, 0.18);
+  color: $accent-lime-bright;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
+}
+
+.hoverHint {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%) translateZ(30px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  background: rgba(6, 8, 13, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  color: $text-muted;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+
+  @include mobile {
+    bottom: -40px;
+    font-size: 0.62rem;
+  }
+}
+
+.sparkle {
+  color: $accent-lime-bright;
+  animation: pulse 2s infinite;
+}

@@ -1,0 +1,106 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.footer {
+  padding: 60px 0 40px;
+  background: $bg-primary;
+  border-top: 1px solid $border-subtle;
+  position: relative;
+  z-index: 2;
+}
+
+.footerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  @include tablet {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+}
+
+.footerName {
+  font-family: $font-serif;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 400;
+  color: $text-primary;
+}
+
+.dot {
+  color: $accent-lime-bright;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  color: $text-secondary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.backTop {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-secondary;
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: $text-primary;
+    transform: translateY(-2px);
+  }
+
+  @include tablet {
+    align-self: flex-end;
+  }
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: $text-dim;
+  text-transform: uppercase;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+.motto {
+  color: $text-muted;
+
+  @include mobile {
+    display: none;
+  }
+}

@@ -1,0 +1,460 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.previewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid $border-subtle;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+}
+
+// Audit preview (RepoMirror)
+.auditPreview {
+  border-radius: 12px;
+  background: #0a0d14;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.repoBar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.repoHost {
+  color: $text-muted;
+}
+
+.repoPath {
+  color: $accent-lime-bright;
+  font-weight: 600;
+}
+
+.statusLive {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.15);
+  color: $accent-lime-bright;
+  font-size: 0.65rem;
+}
+
+.auditBody {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.scoreDial {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.scoreCircle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 3px solid $accent-lime-bright;
+  box-shadow: 0 0 14px $accent-lime-glow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.08);
+  flex-shrink: 0;
+}
+
+.scoreVal {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: $text-primary;
+}
+
+.scoreMax {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  color: $accent-lime-bright;
+}
+
+.scoreMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gradeTag {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $accent-lime-bright;
+}
+
+.evalTag {
+  font-size: 0.8rem;
+  color: $text-secondary;
+}
+
+.metricsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metricItem {
+  display: grid;
+  grid-template-columns: 100px 1fr 40px;
+  align-items: center;
+  gap: 12px;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+}
+
+.metricName {
+  color: $text-secondary;
+}
+
+.metricBar {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.metricFill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, $accent-lime, $accent-lime-bright);
+}
+
+.metricNum {
+  color: $accent-lime-bright;
+  text-align: right;
+  font-weight: 600;
+}
+
+.auditRoadmap {
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.76rem;
+}
+
+.roadmapTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $accent-lime-bright;
+  margin-bottom: 8px;
+}
+
+.sparkleIcon {
+  color: $accent-lime-bright;
+}
+
+.roadmapItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $text-secondary;
+  margin-bottom: 4px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.itemTag {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  background: rgba(16, 185, 129, 0.15);
+  color: $accent-lime-bright;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+// Legal preview
+.legalPreview {
+  border-radius: 12px;
+  background: #090c13;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  overflow: hidden;
+}
+
+.legalTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #60a5fa;
+}
+
+.ttsBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.12);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.legalContent {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legalDocBlock {
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.docLabel {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $text-dim;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.docText {
+  font-size: 0.8rem;
+  color: $text-muted;
+  line-height: 1.45;
+  font-style: italic;
+}
+
+.aiArrow {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  color: #60a5fa;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.simplifiedBlock {
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.07);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.simplifiedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.simplifiedTag {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.voiceIndicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: #93c5fd;
+}
+
+.waveBar {
+  width: 2px;
+  height: 8px;
+  background: #60a5fa;
+  border-radius: 1px;
+  animation: wave 1s infinite alternate;
+
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+    height: 12px;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+    height: 6px;
+  }
+}
+
+@keyframes wave {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1); }
+}
+
+.simplifiedText {
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+// Listing preview (WanderLust)
+.listingPreview {
+  border-radius: 12px;
+  background: #0d0f14;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  overflow: hidden;
+}
+
+.listingTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fbbf24;
+}
+
+.mvcBadge {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.12);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.listingCard {
+  padding: 16px;
+}
+
+.listingImgMock {
+  height: 120px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.listingBadge {
+  align-self: flex-start;
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fbbf24;
+}
+
+.listingOverlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priceTag {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+
+.ratingTag {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: #fbbf24;
+}
+
+.listingDetails {
+  margin-top: 12px;
+}
+
+.propertyName {
+  font-family: $font-heading;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 2px;
+}
+
+.propertyMeta {
+  font-size: 0.78rem;
+  color: $text-muted;
+}
+
+// IoT Preview
+.iotPreview {
+  border-radius: 12px;
+  background: #0c0a14;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  overflow: hidden;
+}
+
+.iotTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #c084fc;
+}
+
+.inProgressTag {
+  color: #c084fc;
+  background: rgba(139, 92, 246, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.iotBody {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.iotTelemetry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.telemetryStat {
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.statLabel {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $text-dim;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.statVal {
+  font-family: $font-heading;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #e2e8f0;
+
+  small {
+    font-size: 0.75rem;
+    color: #c084fc;
+  }
+}
+
+.dbStack {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: #a78bfa;
+}
